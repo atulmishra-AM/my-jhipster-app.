@@ -54,4 +54,13 @@
                 tableName="customer"/>
         </changeSet>
 
+
+            <changeSet id="20251204153000-1" author="jhipster">
+            <createIndex tableName="customer" indexName="idx_customer_orderId">
+                <column name="order_id"/>
+            </createIndex>
+        </changeSet>
+
+
+
 </databaseChangeLog>
