@@ -1,0 +1,21 @@
+{
+  "annotations": {
+    "changelogDate": "20251204053515"
+  },
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orderId",
+      "fieldType": "Double"
+    }
+  ],
+  "name": "Customer",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "no"
+}
