@@ -52,7 +52,7 @@ public class BookResource {
             throw new BadRequestAlertException("A new book cannot already have an ID", ENTITY_NAME, "idexists");
         }
         if (book.getPrice() != null && book.getPrice() > 1000) {
-            throw new BadRequestAlertException("you cant save book", ENTITY_NAME, "priceinvalid");
+            throw new BadRequestAlertException("Book price must be at least 1000", ENTITY_NAME, "priceinvalid");
         }
         book = bookRepository.save(book);
         return ResponseEntity.created(new URI("/api/books/" + book.getId()))
@@ -78,8 +78,8 @@ public class BookResource {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
 
-        if (book.getPrice() != null && book.getPrice() > 1000) {
-            throw new BadRequestAlertException("you cant save book", ENTITY_NAME, "priceinvalid");
+        if (book.getPrice() != null && book.getPrice() > 0 && book.getPrice() < 1000) {
+            throw new BadRequestAlertException("Book price must be at least 1000", ENTITY_NAME, "priceinvalid");
         }
 
         if (!Objects.equals(id, book.getId())) {
@@ -118,8 +118,8 @@ public class BookResource {
         if (book.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
-        if (book.getPrice() != null && book.getPrice() > 1000) {
-            throw new BadRequestAlertException("you cant save book", ENTITY_NAME, "priceinvalid");
+        if (book.getPrice() != null && book.getPrice() > 0 && book.getPrice() < 1000) {
+            throw new BadRequestAlertException("Book price must be at least 1000", ENTITY_NAME, "priceinvalid");
         }
 
         if (!Objects.equals(id, book.getId())) {
